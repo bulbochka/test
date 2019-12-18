@@ -13,8 +13,20 @@ class CreateTables extends Migration
      */
     public function up()
     {
-        Schema::create('tables', function (Blueprint $table) {
+        Schema::create('Topics', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('topicname', 100)->unique();
+            $table->timestamps();
+        });
+
+        Schema::create('Blocks', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('topicid')->unsigned();
+            $table->foreign('topicid')->references('id')->on('Topics')->onDelete('cascade');
+            $table->string('title', 100);
+            $table->longText('content')->nullable();
+            $table->string('imagePath',255)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +38,7 @@ class CreateTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tables');
+        Schema::drop('Topics');
+        Schema::drop('Blocks');
     }
 }
