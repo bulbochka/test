@@ -11,7 +11,7 @@
             <link href="{{asset('css/bootstrap–theme.min.css')}}" rel="stylesheet">
 
             <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('js/jquery – 3.0.0.js')}}"></script>
+            <script type="text/javascript" src="{{asset('js/jquery–3.3.1.js')}}"></script>
 
         </head>
 
@@ -25,7 +25,7 @@
                         <a href="{{url('create')}}">Content Control</a></li>
                 </ul>
             </div>
-        @show
+            @show
             <div class="container col–sm–12 col–md–12 col–lg–12">
              @yield('content')
             </div>
