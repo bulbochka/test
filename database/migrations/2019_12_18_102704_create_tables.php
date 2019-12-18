@@ -26,7 +26,7 @@ class CreateTables extends Migration
             $table->foreign('topicid')->references('id')->on('Topics')->onDelete('cascade');
             $table->string('title', 100);
             $table->longText('content')->nullable();
-            $table->string('imagePath',255)->nullable();
+            $table->string('imagePath',150)->nullable();
             $table->timestamps();
         });
     }
